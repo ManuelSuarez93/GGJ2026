@@ -14,6 +14,14 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector2 moveVector = InputSystem.actions["Move"].ReadValue<Vector2>().normalized;
+        if (InputSystem.actions["Click"].triggered)
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.value), out hit, 3000))
+            {
+                agent.destination = hit.point;
+            }
+        }
     }
 }
