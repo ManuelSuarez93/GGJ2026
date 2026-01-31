@@ -4,6 +4,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private GameManager instance;
+
+    [SerializeField] private PlayerMask currentPlayerMask;
+    
     public GameManager Instance
     {
         get

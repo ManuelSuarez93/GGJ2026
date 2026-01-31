@@ -9,42 +9,71 @@ using Random = UnityEngine.Random;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private float radiusFindPlayer = 20f;
-    [SerializeField] private float timeToSearchAgain = 0.5f;
-    [SerializeField] private float timeToSearch = 1.5f;
-    [SerializeField] private float radiusNewPosition;
-    
-    private void Update()
+    [SerializeField] private float timeToFindPlayer = 3f;
+    [SerializeField] private FieldOfView fieldOfView;
+
+    private EnemyState state;
+    private EnemyState previousState;
+    private float currentTimeToFindPlayer;
+    enum EnemyState
     {
-        SearchPlayerRoutine();
+        Patrolling,
+        Chasing,
+        Looking
     }
 
-    IEnumerator SearchPlayerRoutine()
+    private void Start()
     {
-        while (true)
+        state = EnemyState.Patrolling;
+    }
+
+    private void Update()
+    {
+        if (fieldOfView.canSeePlayer)
         {
-            Collider playersColliders = Physics.OverlapSphere(transform.position, radiusFindPlayer, 1 << LayerMask.NameToLayer("Player")).FirstOrDefault();
-            if (playersColliders != null)
+            ChangeState(EnemyState.Chasing);
+            agent.SetDestination(fieldOfView.playerRef.transform.position);
+        }
+        else
+        {
+            if (state == EnemyState.Chasing && agent.pathStatus == NavMeshPathStatus.PathComplete)
             {
-                agent.SetDestination(playersColliders.transform.position);
+                ChangeState(EnemyState.Looking);
             }
-            else
+            if (state == EnemyState.Looking )
+            {
+                if (currentTimeToFindPlayer < timeToFindPlayer)
+                {
+                    currentTimeToFindPlayer += Time.deltaTime;
+                }
+                else
+                {
+                    ChangeState(EnemyState.Patrolling);
+                    currentTimeToFindPlayer = 0f;
+                }
+            }
+
+            if (state == EnemyState.Patrolling)
             {
                 if (agent.destination == transform.position)
                 {
-                    Vector3 insideUnitSphere = (Random.insideUnitSphere * radiusFindPlayer )+ transform.position;
+                    Vector3 insideUnitSphere = (Random.insideUnitSphere * fieldOfView.radius )+ transform.position;
                     Debug.Log($"Moving destination {insideUnitSphere}");
                     agent.SetDestination(insideUnitSphere);
                 }
             }
+           
         }
-      
     }
-    private void OnDrawGizmos()
+
+    private void OnTriggerEnter(Collider other)
     {
-        Gizmos.color = new Color(1f, 0f, 0f); 
-        Gizmos.DrawWireSphere(transform.position, radiusFindPlayer);
-        Gizmos.color = new Color(1f, 1f, 1f);
-        Gizmos.DrawWireSphere(transform.position, radiusNewPosition);
+        
+    }
+
+    private void ChangeState(EnemyState  newState)
+    {
+        previousState = state;
+        state = newState;
     }
 }

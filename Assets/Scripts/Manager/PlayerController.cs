@@ -14,13 +14,15 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (InputSystem.actions["Click"].triggered)
-        {
+        if (Mouse.current.leftButton.isPressed)
+        {   
+            Debug.Log("CLICK TRIGGERED");
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;
-
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.value), out hit, 3000))
+            if (Physics.Raycast(ray, out hit))
             {
-                agent.destination = hit.point;
+                // Set the NavMeshAgent's destination to the hit point
+                agent.SetDestination(hit.point);
             }
         }
     }
