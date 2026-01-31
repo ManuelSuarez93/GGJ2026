@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -24,6 +25,15 @@ public class PlayerController : MonoBehaviour
                 // Set the NavMeshAgent's destination to the hit point
                 agent.SetDestination(hit.point);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Pickup"))
+        {
+            GameManager.Instance.AddPhotoCollected();
+            other.gameObject.SetActive(false);
         }
     }
 }

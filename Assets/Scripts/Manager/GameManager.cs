@@ -1,13 +1,18 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private GameManager instance;
+    private static GameManager instance;
 
+    [SerializeField] private GameObject currentPlayer;
     [SerializeField] private PlayerMask currentPlayerMask;
+    [SerializeField] private int amountOfPhotos;
+
+    private int currentPhotosGrabbed;
+
+    public PlayerMask CurrentPlayerMask => currentPlayerMask;
     
-    public GameManager Instance
+    public static GameManager Instance
     {
         get
         {
@@ -19,6 +24,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddPhotoCollected()
+    {
+        currentPhotosGrabbed++;
+        UIManager.Instance.UpdatePhotos(currentPhotosGrabbed);
+    }
+
+    public void KillPlayer()
+    {
+        currentPlayer.SetActive(false);
+    }
     private void Awake()
     {
         instance = this;

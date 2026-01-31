@@ -7,9 +7,27 @@
             "id": "df70fa95-8a34-4494-b137-73ab6b9c7d37",
             "actions": [
                 {
-                    "name": "PutOnMask",
+                    "name": "ChangeMask1",
                     "type": "Button",
                     "id": "d8743c0e-3ef3-4ba1-94b8-b105ad4ec64f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeMask2",
+                    "type": "Button",
+                    "id": "d6ba286b-c1e2-425c-83c9-9127353389f2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ChangeMask3",
+                    "type": "Button",
+                    "id": "f8620075-8638-479d-8987-4011eea1ebe9",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -24,7 +42,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "PutOnMask",
+                    "action": "ChangeMask1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfc7752f-c7a9-44f6-9b8c-5cc8c5b51e1f",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ChangeMask2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "871209f9-76d8-40b6-8723-6c10c2bd1940",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "ChangeMask3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -11,7 +11,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float timeToFindPlayer = 3f;
     [SerializeField] private FieldOfView fieldOfView;
-
+    [SerializeField] private PlayerMask.MaskType enemyMaskType;
+    
     private EnemyState state;
     private EnemyState previousState;
     private float currentTimeToFindPlayer;
@@ -29,7 +30,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (fieldOfView.canSeePlayer)
+        if (fieldOfView.canSeePlayer && enemyMaskType != GameManager.Instance.CurrentPlayerMask.CurrentType)
         {
             ChangeState(EnemyState.Chasing);
             agent.SetDestination(fieldOfView.playerRef.transform.position);
@@ -68,7 +69,10 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player") && GameManager.Instance.CurrentPlayerMask.CurrentType != enemyMaskType)
+        {
+            GameManager.Instance.KillPlayer();
+        }
     }
 
     private void ChangeState(EnemyState  newState)
