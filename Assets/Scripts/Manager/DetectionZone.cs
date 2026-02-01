@@ -4,14 +4,14 @@ using UnityEngine;
 public class DetectionZone : MonoBehaviour
 {
     public bool IsDetected { get; private set; }
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        IsDetected = other.CompareTag("Player");
+        if(other.CompareTag("Player")) IsDetected = true;
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        IsDetected = other.CompareTag("Player") && IsDetected ? false : IsDetected;
-        ;
+        if(other.CompareTag("Player") && IsDetected) IsDetected = false;
     }
 }

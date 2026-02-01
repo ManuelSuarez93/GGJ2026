@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private EnemyBehaviour behaviour;
 
     [Header("Searching")]
     [SerializeField] private float timeToFindPlayer = 3f;
@@ -32,15 +33,19 @@ public class EnemyController : MonoBehaviour
     private EnemyState previousState;
     private float currentTimeToFindPlayer;
     private float currentAttackCharge;
-    private Vector2 targetPosition;
- 
-    private bool hasTarget;
-
+    private Vector2 targetPosition; 
     enum EnemyState
     {
         Patrolling,
         Chasing,
         Looking
+    }
+
+    enum EnemyBehaviour
+    {
+        Follower,
+        Stalker,
+        Patrol
     }
 
     private void Start()
@@ -50,7 +55,7 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Update()
-    {
+    { 
         SetDestination();
         Attack();
     }
@@ -62,7 +67,18 @@ public class EnemyController : MonoBehaviour
     }
 
 
+    #region Enemy Behaviour
     private void SetDestination()
+    {
+        switch (behaviour)
+        {
+            case EnemyBehaviour.Follower: Follow(); break;
+            case EnemyBehaviour.Patrol:  Patrol();; break;
+            case EnemyBehaviour.Stalker: agent.SetDestination(PlayerPosition); break;
+        }
+    }
+
+    private void Patrol()
     {
         if (detectionZone.IsDetected && PlayerHasDifferentMask())
         {
@@ -77,8 +93,40 @@ public class EnemyController : MonoBehaviour
                 currentTimeToFindPlayer = 0f; 
             }
 
+            if (state == EnemyState.Patrolling)
+            {
+                if (!agent.hasPath)
+                {
+                    Vector2 randomPointInside = Random.insideUnitCircle * radiusPatrolZone;
+ 
+                    Vector3 finalPosition = transform.position + new Vector3(randomPointInside.x, 0, randomPointInside.y);
+
+                    agent.SetDestination(finalPosition);
+                }
+            }
+        }
+    }
+
+    private void Follow()
+    {
+        if (detectionZone.IsDetected && PlayerHasDifferentMask())
+        {
+            ChangeState(EnemyState.Chasing);
+            targetPosition = PlayerPosition; 
+            agent.SetDestination(targetPosition);
+            
+        }
+        else if(!detectionZone.IsDetected)
+        {
+            if (state == EnemyState.Chasing)
+            {
+                ChangeState(EnemyState.Looking);
+                currentTimeToFindPlayer = 0f;
+            }
+
             if (state == EnemyState.Looking)
             {
+                agent.SetDestination(targetPosition);
                 if (currentTimeToFindPlayer < timeToFindPlayer)
                 {
                     currentTimeToFindPlayer += Time.deltaTime;
@@ -89,16 +137,10 @@ public class EnemyController : MonoBehaviour
                     currentTimeToFindPlayer = 0f;
                 }
             }
-
-            if (state == EnemyState.Patrolling)
-            {
-                if (!agent.hasPath)
-                {
-                    agent.SetDestination(Random.insideUnitCircle * radiusPatrolZone + (Vector2)transform.position);
-                }
-            }
         }
     }
+    
+    #endregion
 
     private static Vector3 PlayerPosition => GameManager.Instance.Player.transform.position;
 
@@ -109,14 +151,14 @@ public class EnemyController : MonoBehaviour
 
     private void Attack()
     {
-        if (currentAttackCharge <= attackChargeTime && state == EnemyState.Chasing)
+        if (currentAttackCharge <= attackChargeTime && detectionZone.IsDetected)
         {
             currentAttackCharge += Time.deltaTime;
 
             ChangeAttackCircleAlpha(maxAlphaForAttackCircle);
             ChangeSoundAttack(maxVolumeScream);
         }
-        else if (currentAttackCharge >= attackChargeTime && state == EnemyState.Chasing)
+        else if (currentAttackCharge >= attackChargeTime && detectionZone.IsDetected)
         {
             DoAttack();
             renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0f);
@@ -125,7 +167,7 @@ public class EnemyController : MonoBehaviour
             ChangeAttackCircleAlpha(0f);
             ChangeSoundAttack(minVolumeScream);
         }
-        else if (state != EnemyState.Chasing)
+        else if (!detectionZone.IsDetected)
         {
             if (currentAttackCharge > 0f)
                 currentAttackCharge -= Time.deltaTime;
