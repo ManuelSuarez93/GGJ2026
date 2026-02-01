@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,11 +21,16 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField] private TextMeshProUGUI photosText;
-    [SerializeField] private TextMeshProUGUI pausedText;
+    [SerializeField] private GameObject pauseMenu;
     private void Awake()
     {
         instance = this;
-        InputSystem.actions["Cancel"].performed += (context) => Pause();
+        InputSystem.actions["Cancel"].performed += Pause;
+    }
+
+    private void OnDestroy()
+    {
+        InputSystem.actions["Cancel"].performed -= Pause;
     }
 
     public void UpdatePhotos(int amount)
@@ -32,9 +38,9 @@ public class UIManager : MonoBehaviour
         photosText.text = $"Paginas : {amount}";
     }
 
-    private void Pause()
+    public void Pause(InputAction.CallbackContext context)
     {
         Time.timeScale =  Time.timeScale > 0 ? 0 : 1;
-        pausedText.gameObject.SetActive(Time.timeScale > 0);
+        pauseMenu.SetActive(Time.timeScale <= 0);
     }
 }

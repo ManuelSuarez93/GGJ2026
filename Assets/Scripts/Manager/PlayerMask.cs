@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,11 +8,14 @@ public class PlayerMask : MonoBehaviour
     [SerializeField] private SpriteRenderer renderer;
     [SerializeField] private MaskType currentType;
     [SerializeField] private float changeAmount;
-    
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] List<Sprite> sprites;
     public MaskType CurrentType => currentType;
+    private MaskType maskToChange = MaskType.NoMask;
 
     public enum MaskType
     {
+        NoMask,
         Mask1,
         Mask2,
         Mask3
@@ -36,9 +40,11 @@ public class PlayerMask : MonoBehaviour
             {
                 renderer.color = Color.Lerp(renderer.color, colorTo, Mathf.Clamp01(currentTimeChange/changeAmount));
                 currentTimeChange += Time.deltaTime;
+                currentType = MaskType.NoMask;
             }
             else
             {
+                currentType = maskToChange;
                 renderer.color = colorTo;
                 currentTimeChange = 0;
                 isChanging = false;
@@ -46,22 +52,34 @@ public class PlayerMask : MonoBehaviour
         }
     }
 
+    public void SetMaskImage()
+    { 
+        switch (currentType)
+        {
+            case MaskType.Mask1: renderer.sprite = sprites[0]; break;
+            case MaskType.Mask2: renderer.sprite = sprites[1]; break;
+            case MaskType.Mask3: renderer.sprite = sprites[2]; break;
+        }
+    }
+    
     private void ChangeMask(MaskType newType)
     {
-        isChanging = true;
-        currentType = newType;
+        if(isChanging) return;
         
-        //TODO User animator?
+        maskToChange = newType;
+        isChanging = true; 
+        renderer.sprite = null;
+        
         switch (newType)
         {
             case MaskType.Mask1: 
-                colorTo = Color.white;
+                playerAnimator.Play("Mask1");
                 break;
             case MaskType.Mask2: 
-                colorTo = Color.red;
+                playerAnimator.Play("Mask2");
                 break;
             case MaskType.Mask3: 
-                colorTo = Color.green;
+                playerAnimator.Play("Mask3");
                 break;
         }
     }

@@ -1,16 +1,20 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-
-    [SerializeField] private GameObject currentPlayer;
+ 
+    [SerializeField] private PlayerController player;
     [SerializeField] private PlayerMask currentPlayerMask;
     [SerializeField] private int amountOfPhotos;
 
     private int currentPhotosGrabbed;
 
     public PlayerMask CurrentPlayerMask => currentPlayerMask;
+    public PlayerController Player => player;
     
     public static GameManager Instance
     {
@@ -32,10 +36,18 @@ public class GameManager : MonoBehaviour
 
     public void KillPlayer()
     {
-        currentPlayer.SetActive(false);
+        player.gameObject.SetActive(false);
+        UIManager.Instance.Pause(new InputAction.CallbackContext());
     }
     private void Awake()
     {
+        DontDestroyOnLoad(this);
         instance = this;
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
 }

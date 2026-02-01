@@ -157,8 +157,8 @@ Transform:
   m_GameObject: {fileID: 1551728591557413055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.23, z: 0.45}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalPosition: {x: -0.27, y: 7.55, z: -0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9137998131522650322}
@@ -212,7 +212,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 9414abddb06d34f48a39d28eb72a664f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -285,7 +285,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.03, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9137998131522650322}
@@ -339,7 +339,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 9287bedabfb5efc43875eb970c2b1752, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -359,7 +359,7 @@ Animator:
   m_GameObject: {fileID: 2659719806738734776}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 045936bb9c2b9a54382840512ee9ce37, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -459,6 +459,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   agent: {fileID: 1255724056003678200}
   animator: {fileID: 3536083957150256690}
+  speed: 0
+  footsteps: {fileID: 0}
+  footstepRate: 0.5
+  effects: {fileID: 0}
 --- !u!65 &3986177600442132552
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -495,6 +499,11 @@ MonoBehaviour:
   renderer: {fileID: 4971821756095744719}
   currentType: 0
   changeAmount: 1
+  playerAnimator: {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: 9414abddb06d34f48a39d28eb72a664f, type: 3}
+  - {fileID: 21300000, guid: 61d16dd410eefb94dbcf9f2f83d4b571, type: 3}
+  - {fileID: 21300000, guid: 1a9ddfa8c1aa0fc47a0afdb952b55439, type: 3}
 --- !u!54 &442576220710384193
 Rigidbody:
   m_ObjectHideFlags: 0

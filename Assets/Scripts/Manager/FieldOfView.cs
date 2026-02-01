@@ -27,49 +27,59 @@ public class FieldOfView : MonoBehaviour
         while (true)
         {
             yield return wait;
-            FieldOfViewCheck();
+            FieldOfViewCheck2D();
         }
     }
 
-    private void FieldOfViewCheck()
+    private void FieldOfViewCheck2D()
     {
-        Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
+        Collider2D[] rangeChecks = Physics2D.OverlapCircleAll(transform.position, radius, targetMask);
 
         if (rangeChecks.Length != 0)
         {
             Transform target = rangeChecks[0].transform;
-            Vector3 directionToTarget = (target.position - transform.position).normalized;
 
-            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+            Vector2 origin = transform.position;
+            Vector2 targetPos = target.position;
+
+            Vector2 directionToTarget = (targetPos - origin).normalized;
+
+            // In 2D, "forward" is typically transform.up (top-down) or transform.right (side-scroller).
+            // This assumes top-down (sprite facing up).
+            if (Vector2.Angle(transform.up, directionToTarget) < angle / 2f)
             {
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+                float distanceToTarget = Vector2.Distance(origin, targetPos);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
-                    canSeePlayer = true;
-                else
-                    canSeePlayer = false;
+                RaycastHit2D hit = Physics2D.Raycast(origin, directionToTarget, distanceToTarget, obstructionMask);
+                canSeePlayer = hit.collider == null;
             }
             else
+            {
                 canSeePlayer = false;
+            }
         }
         else if (canSeePlayer)
+        {
             canSeePlayer = false;
+        }
     }
 
     private void OnDrawGizmos()
     {
-        Vector3 viewAngle01 = DirectionFromAngle(transform.eulerAngles.y, -angle / 2);
-        Vector3 viewAngle02 = DirectionFromAngle(transform.eulerAngles.y, angle / 2);
+        Vector2 viewAngle01 = DirectionFromAngle2D(transform.eulerAngles.z, -angle / 2f);
+        Vector2 viewAngle02 = DirectionFromAngle2D(transform.eulerAngles.z, angle / 2f);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + viewAngle01 * radius);
-        Gizmos.DrawLine(transform.position, transform.position + viewAngle02 * radius);
+        Gizmos.DrawLine(transform.position, transform.position + (Vector3)(viewAngle01 * radius));
+        Gizmos.DrawLine(transform.position, transform.position + (Vector3)(viewAngle02 * radius));
     }
-    
-    private Vector3 DirectionFromAngle(float eulerY, float angleInDegrees)
-    {
-        angleInDegrees += eulerY;
 
-        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+    private Vector2 DirectionFromAngle2D(float eulerZ, float angleInDegrees)
+    {
+        angleInDegrees += eulerZ;
+        float rad = angleInDegrees * Mathf.Deg2Rad;
+
+        // 2D plane (XY): (cos, sin)
+        return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
     }
 }
