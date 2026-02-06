@@ -21,13 +21,15 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private AudioSource enemyAudioSource;
     [SerializeField] private List<AudioClip> screamClips;
     [SerializeField] private float maxVolumeScream;
+    [SerializeField] private SpriteRenderer enemyRenderer;
     [SerializeField] private float minVolumeScream;
 
     [Header("Attack")]
     [SerializeField] private float attackChargeTime;
     [SerializeField] private float minimumDistance;
     [SerializeField] private SpriteRenderer renderer;
-    [SerializeField] private float maxAlphaForAttackCircle;
+    [SerializeField] private Color normalColor = Color.white;
+    [SerializeField] private Color attackColor = Color.red;
 
     private EnemyState state;
     private EnemyState previousState;
@@ -63,7 +65,10 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         if (animator)
-            animator.SetBool("IsWalking", agent.velocity.magnitude > 1f); // keep same threshold feel as before
+            animator.SetBool("IsWalking", agent.velocity.magnitude > 1f); 
+        
+        
+        enemyRenderer.flipX = agent.velocity.x > 0;
     }
 
 
@@ -72,7 +77,7 @@ public class EnemyController : MonoBehaviour
     {
         switch (behaviour)
         {
-            case EnemyBehaviour.Follower: Follow(); break;
+            case EnemyBehaviour.Follower: break;
             case EnemyBehaviour.Patrol:  Patrol();; break;
             case EnemyBehaviour.Stalker: agent.SetDestination(PlayerPosition); break;
         }
@@ -89,8 +94,7 @@ public class EnemyController : MonoBehaviour
         {
             if (state == EnemyState.Chasing)
             {
-                ChangeState(EnemyState.Looking);
-                currentTimeToFindPlayer = 0f; 
+                ChangeState(EnemyState.Patrolling); 
             }
 
             if (state == EnemyState.Patrolling)
@@ -122,6 +126,7 @@ public class EnemyController : MonoBehaviour
             {
                 ChangeState(EnemyState.Looking);
                 currentTimeToFindPlayer = 0f;
+                agent.SetDestination(PlayerPosition);
             }
 
             if (state == EnemyState.Looking)
@@ -151,11 +156,11 @@ public class EnemyController : MonoBehaviour
 
     private void Attack()
     {
-        if (currentAttackCharge <= attackChargeTime && detectionZone.IsDetected)
+        if (currentAttackCharge <= attackChargeTime && detectionZone.IsDetected && PlayerHasDifferentMask())
         {
             currentAttackCharge += Time.deltaTime;
 
-            ChangeAttackCircleAlpha(maxAlphaForAttackCircle);
+            ChangeAttackCircleAlpha(true);
             ChangeSoundAttack(maxVolumeScream);
         }
         else if (currentAttackCharge >= attackChargeTime && detectionZone.IsDetected)
@@ -164,7 +169,7 @@ public class EnemyController : MonoBehaviour
             renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0f);
             currentAttackCharge = 0f;
 
-            ChangeAttackCircleAlpha(0f);
+            ChangeAttackCircleAlpha(false);
             ChangeSoundAttack(minVolumeScream);
         }
         else if (!detectionZone.IsDetected)
@@ -173,19 +178,29 @@ public class EnemyController : MonoBehaviour
                 currentAttackCharge -= Time.deltaTime;
 
             ChangeSoundAttack(minVolumeScream);
-            ChangeAttackCircleAlpha(0f);
+            ChangeAttackCircleAlpha(false);
         }
     }
 
-    private void ChangeAttackCircleAlpha(float valueToAlpha)
+    private void ChangeAttackCircleAlpha(bool attack)
     {
-        float startValue = renderer.color.a;
-        float newAlpha = Mathf.Lerp(startValue, valueToAlpha, currentAttackCharge / attackChargeTime);
-        renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, newAlpha);
+        if (true)
+        {
+            renderer.color = Color.Lerp(normalColor, attackColor, currentAttackCharge / attackChargeTime);
+        }
+        else
+        { 
+            renderer.color = Color.Lerp(attackColor, normalColor, currentAttackCharge / attackChargeTime);
+        }
     }
 
     private void ChangeSoundAttack(float volumeTo)
     {
+        if (!enemyAudioSource.isPlaying && detectionZone.IsDetected)
+        {
+            enemyAudioSource.clip = screamClips[Random.Range(0, screamClips.Count - 1)];
+            enemyAudioSource.Play();
+        }
         float startValue = enemyAudioSource.volume;
         float newValue = Mathf.Lerp(startValue, volumeTo, currentAttackCharge / attackChargeTime);
         enemyAudioSource.volume = newValue;

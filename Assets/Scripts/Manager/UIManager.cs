@@ -33,10 +33,6 @@ public class UIManager : MonoBehaviour
         InputSystem.actions["Cancel"].performed -= Pause;
     }
 
-    public void UpdatePhotos(int amount)
-    {
-        photosText.text = $"Paginas : {amount}";
-    }
 
     public void Pause(InputAction.CallbackContext context)
     {

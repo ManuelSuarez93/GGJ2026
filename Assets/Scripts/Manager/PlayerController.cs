@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using Random = System.Random;
 
@@ -10,14 +12,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private SpriteRenderer renderer;
 
     [Header("Input System")]
     [SerializeField] private string clickMoveActionName = "ClickMove"; // create this in your Input Actions asset
 
     [Header("Audio")]
     [SerializeField] private AudioSource footsteps;
+    [SerializeField] private List<AudioClip> footstepClips;
     [SerializeField] private float footstepRate = 0.5f;
     [SerializeField] private AudioSource effects;
+    [SerializeField] private AudioClip pickupClip;
 
     private float currentFootstepTime = 0f;
     public float NormalSpeed { get; private set; }
@@ -25,15 +30,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 targetPosition;
     private void Start()
     {
-        NormalSpeed = speed;
+        NormalSpeed = agent.speed;
     }
-
-
-  
+    
 
     public void FixedUpdate()
     {
-        if (Mouse.current.leftButton.isPressed)
+        if (Mouse.current.leftButton.isPressed && !EventSystem.current.IsPointerOverGameObject())
         {
             Vector3 screenPosition = Mouse.current.position.value;
 
@@ -43,16 +46,10 @@ public class PlayerController : MonoBehaviour
 
         if (animator)
             animator.SetBool("IsWalking", agent.velocity.magnitude > 0.0001f);
-    }
+        if (agent.velocity.magnitude > 0.0001f)
+            PerformFootstep();
 
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Pickup"))
-        {
-            GameManager.Instance.AddPhotoCollected();
-            other.gameObject.SetActive(false);
-        }
+        renderer.flipX = agent.velocity.x > 0;
     }
 
     public void PerformFootstep()

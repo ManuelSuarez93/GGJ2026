@@ -28,20 +28,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddPhotoCollected()
-    {
-        currentPhotosGrabbed++;
-        UIManager.Instance.UpdatePhotos(currentPhotosGrabbed);
-    }
-
     public void KillPlayer()
     {
         player.gameObject.SetActive(false);
         UIManager.Instance.Pause(new InputAction.CallbackContext());
     }
     private void Awake()
-    {
-        DontDestroyOnLoad(this);
+    { 
         instance = this;
     }
 

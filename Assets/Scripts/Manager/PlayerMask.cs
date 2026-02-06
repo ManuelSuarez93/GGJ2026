@@ -27,9 +27,6 @@ public class PlayerMask : MonoBehaviour
     {
         colorTo = renderer.color;
         isChanging = false;
-        InputSystem.actions["ChangeMask1"].performed += (context) => ChangeMask(MaskType.Mask1);
-        InputSystem.actions["ChangeMask2"].performed += (context) => ChangeMask(MaskType.Mask2);
-        InputSystem.actions["ChangeMask3"].performed += (context) => ChangeMask(MaskType.Mask3);
     }
 
     private void Update()
@@ -62,15 +59,15 @@ public class PlayerMask : MonoBehaviour
         }
     }
     
-    private void ChangeMask(MaskType newType)
+    public void ChangeMask(int newType)
     {
         if(isChanging) return;
         
-        maskToChange = newType;
+        maskToChange = (MaskType) Enum.ToObject(typeof(MaskType), newType);
         isChanging = true; 
         renderer.sprite = null;
         
-        switch (newType)
+        switch (maskToChange)
         {
             case MaskType.Mask1: 
                 playerAnimator.Play("Mask1");
