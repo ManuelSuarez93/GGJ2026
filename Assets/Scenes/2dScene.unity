@@ -12121,6 +12121,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartingMenuUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3983116773087006420, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4790783448085027592, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_Name
       value: OpenButton
@@ -12140,6 +12144,10 @@ PrefabInstance:
     - target: {fileID: 7210804052809197740, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465163956253932384, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.3999634
       objectReference: {fileID: 0}
     - target: {fileID: 9052872389635495204, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_Pivot.x
@@ -13476,9 +13484,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1127591458403873149}
+    - target: {fileID: 5892259436607709581, guid: 775ea42701262e54f9d6e9906eb23a3a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 397
+      objectReference: {fileID: 0}
     - target: {fileID: 8170221348116424444, guid: 775ea42701262e54f9d6e9906eb23a3a, type: 3}
       propertyPath: m_Name
       value: GameplayUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170221348116424444, guid: 775ea42701262e54f9d6e9906eb23a3a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8366966352912808106, guid: 775ea42701262e54f9d6e9906eb23a3a, type: 3}
       propertyPath: m_Pivot.x
