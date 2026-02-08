@@ -1,8 +1,15 @@
 fileFormatVersion: 2
 guid: ba546f60804c4ee488f3ad055ff04843
+AssetOrigin:
+  serializedVersion: 1
+  productId: 69542
+  packageName: Realtime CSG
+  packageVersion: 1.558
+  assetPath: Assets/Plugins/RealtimeCSG/Editor/External/x64/RealtimeCSG[1_559].dll
+  uploadId: 383425
 PluginImporter:
   externalObjects: {}
-  serializedVersion: 2
+  serializedVersion: 3
   iconMap: {}
   executionOrder: {}
   defineConstraints: []
@@ -11,24 +18,36 @@ PluginImporter:
   isExplicitlyReferenced: 0
   validateReferences: 1
   platformData:
-  - first:
-      Any: 
-    second:
+    Any:
       enabled: 0
-      settings: {}
-  - first:
-      Editor: Editor
-    second:
-      enabled: 1
       settings:
+        Exclude Editor: 1
+        Exclude Linux64: 1
+        Exclude OSXUniversal: 1
+        Exclude Win: 1
+        Exclude Win64: 1
+    Editor:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
         DefaultValueInitialized: true
+        OS: AnyOS
+    Linux64:
+      enabled: 0
+      settings:
+        CPU: x86_64
+    OSXUniversal:
+      enabled: 0
+      settings:
+        CPU: None
+    Win:
+      enabled: 0
+      settings:
+        CPU: x86
+    Win64:
+      enabled: 0
+      settings:
+        CPU: None
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 69542
-  packageName: Realtime CSG
-  packageVersion: 1.558
-  assetPath: Assets/Plugins/RealtimeCSG/Editor/External/x64/RealtimeCSG[1_559].dll
-  uploadId: 383425
