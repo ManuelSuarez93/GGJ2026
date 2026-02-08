@@ -10,12 +10,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerController player;
     [SerializeField] private PlayerMask currentPlayerMask;
     [SerializeField] private int amountOfPhotos;
-
+    [SerializeField] private GameObject Level;
     private int currentPhotosGrabbed;
-
+    private bool isPlaying = false;
     public PlayerMask CurrentPlayerMask => currentPlayerMask;
     public PlayerController Player => player;
     
+    public bool IsPlaying => isPlaying;
     public static GameManager Instance
     {
         get
@@ -28,11 +29,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        isPlaying = true;
+        Level.SetActive(isPlaying);
+    }
+
     public void KillPlayer()
     {
         player.gameObject.SetActive(false);
         UIManager.Instance.Pause(new InputAction.CallbackContext());
     }
+
     private void Awake()
     { 
         instance = this;

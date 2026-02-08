@@ -51,7 +51,6 @@ public class MainMenu : MonoBehaviour
     IEnumerator WaitForCloseCoroutine()
     {
         yield return new WaitForSeconds(waitForClose);
-        onOpenLetter.Invoke();
-        SceneManager.LoadScene("2dScene");
+        onCloseLetter.Invoke();
     }
 }
