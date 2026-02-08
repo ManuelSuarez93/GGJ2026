@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{f409ad2f-b497-470d-bf27-55cb1f197093}">
+		<property name="assetPath">
+			<value>gritos llorona/gritos llorona 1.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>10.370612244897959</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9efb5efe-f5de-4b59-9fd4-518b1c4325c2}</destination>
+		</relationship>
+	</object>
+</objects>

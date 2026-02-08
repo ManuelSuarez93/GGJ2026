@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{869782df-4ca9-4aeb-963b-497113ec5277}">
+		<property name="assetPath">
+			<value>pisadas.meta</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9efb5efe-f5de-4b59-9fd4-518b1c4325c2}</destination>
+		</relationship>
+	</object>
+</objects>
