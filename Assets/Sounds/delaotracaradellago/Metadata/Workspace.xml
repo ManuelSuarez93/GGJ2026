@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Workspace" id="{57ef2e11-1640-4c68-8603-e487ae48d372}">
+		<property name="builtBanksOutputDirectory">
+			<value>foleys/F MOD</value>
+		</property>
 		<relationship name="masterEventFolder">
 			<destination>{c47c311e-8c55-45f3-b8b5-2d4c4c2a53dd}</destination>
 		</relationship>
