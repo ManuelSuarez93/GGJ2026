@@ -610,9 +610,9 @@ GameObject:
   m_Component:
   - component: {fileID: 263253385}
   - component: {fileID: 263253384}
-  - component: {fileID: 263253383}
   - component: {fileID: 263253386}
   - component: {fileID: 263253387}
+  - component: {fileID: 263253388}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -620,14 +620,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &263253383
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263253382}
-  m_Enabled: 1
 --- !u!20 &263253384
 Camera:
   m_ObjectHideFlags: 0
@@ -771,6 +763,20 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &263253388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263253382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &290667780
 GameObject:
   m_ObjectHideFlags: 0
@@ -9368,6 +9374,42 @@ MonoBehaviour:
   currentPlayerMask: {fileID: 1127591458403873149}
   amountOfPhotos: 0
   Level: {fileID: 639486082}
+--- !u!1 &1529209764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4790783448085027592, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
+  m_PrefabInstance: {fileID: 1939182507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1529209769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529209764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 985056337
+      Data2: 1301839257
+      Data3: -535232127
+      Data4: 1788422124
+    Path: event:/ruido papel carta
+  Event: 
+  EventPlayTrigger: 13
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1569858954
 GameObject:
   m_ObjectHideFlags: 0
@@ -12232,7 +12274,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3983116773087006420, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1939182514}
+    - targetCorrespondingSourceObject: {fileID: 3983116773087006420, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1939182513}
+    - targetCorrespondingSourceObject: {fileID: 4790783448085027592, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1529209769}
   m_SourcePrefab: {fileID: 100100000, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
 --- !u!224 &1939182508 stripped
 RectTransform:
@@ -12250,6 +12301,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58164d6f7f811fc49a46a59a09df0771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &1939182513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886060598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -59467360
+      Data2: 1292144293
+      Data3: 1572612272
+      Data4: -2010246215
+    Path: event:/intro
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!81 &1939182514
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886060598}
+  m_Enabled: 1
 --- !u!1 &2024864130
 GameObject:
   m_ObjectHideFlags: 0

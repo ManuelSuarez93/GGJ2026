@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{6667ef90-5ffb-4d0c-8d58-6002d7b88fce}">
+		<property name="assetPath">
+			<value>ruidos llorona fantasmales.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>62.789410430839006</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9efb5efe-f5de-4b59-9fd4-518b1c4325c2}</destination>
+		</relationship>
+	</object>
+</objects>
