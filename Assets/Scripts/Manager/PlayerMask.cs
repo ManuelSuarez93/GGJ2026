@@ -5,11 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerMask : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer renderer;
     [SerializeField] private MaskType currentType;
-    [SerializeField] private float changeAmount;
+    [SerializeField] private float maskOffTime;
+    [SerializeField] private float maskOnTime;
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] List<Sprite> sprites;
     public MaskType CurrentType => currentType;
     private MaskType maskToChange = MaskType.NoMask;
 
@@ -20,64 +19,76 @@ public class PlayerMask : MonoBehaviour
         Mask2,
         Mask3
     }
+
     private Color colorTo; // TODO change this to sprite or something
-    private bool isChanging;
+    private bool maskOff;
+    private bool maskOn;
     private float currentTimeChange;
     void Start()
-    {
-        colorTo = renderer.color;
-        isChanging = false;
+    { 
+        maskOff = false;
+        playerAnimator.SetBool("MaskOff", maskOff);
+        playerAnimator.SetBool("MaskOn", maskOff);
+    
     }
 
     private void Update()
     {
-        if (isChanging)
+        if (maskOff)
         {
-            if (currentTimeChange < changeAmount)
+            if (currentTimeChange < maskOffTime)
             {
-                renderer.color = Color.Lerp(renderer.color, colorTo, Mathf.Clamp01(currentTimeChange/changeAmount));
                 currentTimeChange += Time.deltaTime;
                 currentType = MaskType.NoMask;
             }
             else
             {
-                currentType = maskToChange;
-                renderer.color = colorTo;
-                currentTimeChange = 0;
-                isChanging = false;
+                currentTimeChange = 0f; 
+                maskOff = false; 
+                maskOn = true;
+                playerAnimator.SetBool("MaskOff", maskOff);
+                playerAnimator.SetBool("MaskOn", maskOn);
+            }
+        }
+
+        if (maskOn)
+        {
+            if (currentTimeChange < maskOnTime)
+            {
+                currentTimeChange += Time.deltaTime;
+            }
+            else
+            {
+                currentTimeChange = 0f; 
+                currentType = MaskType.Mask1; 
+                maskOn = false;
+                playerAnimator.SetBool("MaskOn", maskOn);
             }
         }
     }
 
-    public void SetMaskImage()
-    { 
-        switch (currentType)
-        {
-            case MaskType.Mask1: renderer.sprite = sprites[0]; break;
-            case MaskType.Mask2: renderer.sprite = sprites[1]; break;
-            case MaskType.Mask3: renderer.sprite = sprites[2]; break;
-        }
-    }
-    
     public void ChangeMask(int newType)
     {
-        if(isChanging) return;
+        if(maskOff || maskOn) return;
         
         maskToChange = (MaskType) Enum.ToObject(typeof(MaskType), newType);
-        isChanging = true; 
-        renderer.sprite = null;
+        maskOff = true;
+        maskOn = false;
+    
+        playerAnimator.SetBool("MaskOff", maskOff);
         
         switch (maskToChange)
         {
             case MaskType.Mask1: 
-                playerAnimator.Play("Mask1");
+                playerAnimator.SetInteger("Mask", 1);
                 break;
             case MaskType.Mask2: 
-                playerAnimator.Play("Mask2");
+                playerAnimator.SetInteger("Mask", 2);
                 break;
             case MaskType.Mask3: 
-                playerAnimator.Play("Mask3");
+                playerAnimator.SetInteger("Mask", 3);
                 break;
         }
+
     }
 }

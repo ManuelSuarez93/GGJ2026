@@ -5,7 +5,7 @@
 			<value>loop gameplay</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{c47c311e-8c55-45f3-b8b5-2d4c4c2a53dd}</destination>
@@ -96,10 +96,13 @@
 	<object class="MixerBusEffectChain" id="{2e43fcc8-9d41-4be0-9b31-e520522431c0}">
 		<relationship name="effects">
 			<destination>{94423c7f-842b-4b06-aaf6-ac381765d105}</destination>
-			<destination>{434cda52-1184-4499-a72a-6f5dd5e1a648}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{6ee6e863-40b1-4ec0-8c5b-b953b0c1b7be}" />
+	<object class="MixerBusPanner" id="{6ee6e863-40b1-4ec0-8c5b-b953b0c1b7be}">
+		<property name="overridingOutputFormat">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{d8708463-a4f9-4d6c-ad9b-d3b8743b50f2}">
 		<relationship name="audioFile">
 			<destination>{6913126a-f0b8-4e30-9bb9-a7d091abf894}</destination>
@@ -107,5 +110,4 @@
 	</object>
 	<object class="MixerBusFader" id="{f756f46f-2262-4459-a00a-f2d12d611ad0}" />
 	<object class="MixerBusFader" id="{94423c7f-842b-4b06-aaf6-ac381765d105}" />
-	<object class="SpatialiserEffect" id="{434cda52-1184-4499-a72a-6f5dd5e1a648}" />
 </objects>

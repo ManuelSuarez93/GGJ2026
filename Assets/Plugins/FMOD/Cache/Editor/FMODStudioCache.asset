@@ -27,6 +27,80 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6913990835645466714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ruido papel carta
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/ruido papel carta
+  Guid:
+    Data1: 985056337
+    Data2: 1301839257
+    Data3: -535232127
+    Data4: 1788422124
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6405244884783217735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/grito fuerte
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/grito fuerte
+  Guid:
+    Data1: -576844571
+    Data2: 1258476888
+    Data3: -262991964
+    Data4: -1094092838
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6292957652196908841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/Sounds/delaotracaradellago/foleys/F MOD/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639074885674049408
+  FileSizes:
+  - Name: 
+    Value: 1280
+  Exists: 1
 --- !u!114 &-6115273207574202771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +193,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4384933370803730805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/gritos llorona 1
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/gritos llorona 1
+  Guid:
+    Data1: -488677034
+    Data2: 1182592665
+    Data3: 2048999059
+    Data4: 1192864093
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4264858619153150800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +274,87 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-4150094702742774328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/intro
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/intro
+  Guid:
+    Data1: -59467360
+    Data2: 1292144293
+    Data3: 1572612272
+    Data4: -2010246215
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3062308176386523219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ruidos llorona fantasmales
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/ruidos llorona fantasmales
+  Guid:
+    Data1: -1412878704
+    Data2: 1130878729
+    Data3: -635040073
+    Data4: 1054857268
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 9.6
+  Length: 0
+--- !u!114 &-2722071238142070636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/pisada hojas
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/pisada hojas
+  Guid:
+    Data1: -1895653227
+    Data2: 1076555014
+    Data3: -1282156909
+    Data4: 1185786263
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-2585242091698627621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +377,60 @@ MonoBehaviour:
   - {fileID: -5614109155033486808}
   IsStream: 0
   Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2581421396729153378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/gameover
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/gameover
+  Guid:
+    Data1: 490915228
+    Data2: 1220473408
+    Data3: -1818006116
+    Data4: -1119215034
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2056801031171572347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/agarra mascara
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/agarra mascara
+  Guid:
+    Data1: 1050546507
+    Data2: 1302952757
+    Data3: 160331170
+    Data4: 75860476
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -247,6 +483,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 9.6
   Length: 0
+--- !u!114 &-1284048495006055411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/Sounds/delaotracaradellago/foleys/F MOD/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639074885674049408
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-357916009533582754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,50 +568,104 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
   EditorBanks:
-  - {fileID: -5720152033588125267}
-  - {fileID: -5614109155033486808}
+  - {fileID: -6292957652196908841}
+  - {fileID: -1284048495006055411}
   EditorEvents:
-  - {fileID: -4264858619153150800}
-  - {fileID: 4769080375606854609}
-  - {fileID: -314561135912656769}
-  - {fileID: -8148103190340202149}
-  - {fileID: -4162827229204546934}
-  - {fileID: 3191581845650702832}
-  - {fileID: -357916009533582754}
-  - {fileID: -1639034378827927683}
-  - {fileID: -2585242091698627621}
-  - {fileID: -5327533313124801812}
-  - {fileID: -6115273207574202771}
+  - {fileID: 1163212475730855002}
+  - {fileID: -2056801031171572347}
+  - {fileID: -6913990835645466714}
+  - {fileID: -4384933370803730805}
+  - {fileID: 1595378147527567527}
+  - {fileID: 7095968075728999783}
+  - {fileID: -3062308176386523219}
+  - {fileID: -2722071238142070636}
+  - {fileID: -2581421396729153378}
+  - {fileID: -4150094702742774328}
+  - {fileID: -6405244884783217735}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -5614109155033486808}
+  - {fileID: -1284048495006055411}
   StringsBanks:
-  - {fileID: -5720152033588125267}
+  - {fileID: -6292957652196908841}
   cacheVersion: 131858
-  cacheTime: 639070480556318926
+  cacheTime: 639074885674049408
   SerializableEventsDict:
-  - key: event:/agarra mascara
-    index: 0
-  - key: event:/ruido papel carta
-    index: 1
-  - key: event:/loop gameplay
-    index: 2
-  - key: event:/intro
-    index: 3
   - key: event:/pisada pedregullo
-    index: 4
+    index: 0
+  - key: event:/agarra mascara
+    index: 1
+  - key: event:/ruido papel carta
+    index: 2
   - key: event:/gritos llorona 1
-    index: 5
+    index: 3
   - key: event:/llanto llorona 1
-    index: 6
+    index: 4
+  - key: event:/loop gameplay
+    index: 5
   - key: event:/ruidos llorona fantasmales
-    index: 7
+    index: 6
   - key: event:/pisada hojas
-    index: 8
+    index: 7
   - key: event:/gameover
+    index: 8
+  - key: event:/intro
     index: 9
   - key: event:/grito fuerte
     index: 10
+--- !u!114 &1163212475730855002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/pisada pedregullo
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/pisada pedregullo
+  Guid:
+    Data1: -1862502337
+    Data2: 1088262677
+    Data3: -216477311
+    Data4: -1562907481
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1595378147527567527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/llanto llorona 1
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/llanto llorona 1
+  Guid:
+    Data1: -1970104741
+    Data2: 1322263925
+    Data3: -2106887532
+    Data4: 74618845
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2641181437570960350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +734,33 @@ MonoBehaviour:
   Banks:
   - {fileID: -5614109155033486808}
   IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7095968075728999783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/loop gameplay
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/loop gameplay
+  Guid:
+    Data1: 1757459804
+    Data2: 1303361308
+    Data3: -581653883
+    Data4: -1468678098
+  Banks:
+  - {fileID: -1284048495006055411}
+  IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []

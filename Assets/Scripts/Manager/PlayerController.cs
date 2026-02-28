@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string clickMoveActionName = "ClickMove"; // create this in your Input Actions asset
 
     [Header("Audio")]
-    [SerializeField] private AudioSource footsteps;
-    [SerializeField] private List<AudioClip> footstepClips;
     [SerializeField] private float footstepRate = 0.5f;
     [SerializeField] private AudioSource effects;
     [SerializeField] private AudioClip pickupClip;
@@ -45,25 +43,31 @@ public class PlayerController : MonoBehaviour
         }
 
         if (animator)
+        {
             animator.SetBool("IsWalking", agent.velocity.magnitude > 0.0001f);
-        if (agent.velocity.magnitude > 0.0001f)
-            PerformFootstep();
+            animator.SetFloat("Movement", Mathf.Clamp(agent.velocity.magnitude, 0, 1f)); 
+        }
+        
+        
+        PerformFootstep();
 
         renderer.flipX = agent.velocity.x > 0;
     }
 
     public void PerformFootstep()
     {
-        if (currentFootstepTime < footstepRate)
+        if (agent.velocity.magnitude > 0.0001f)
         {
-            currentFootstepTime += Time.deltaTime;
-        }
-        else
-        {
-            footsteps.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
-            footsteps.Play();
-            currentFootstepTime = 0f;
-        }
+            if (currentFootstepTime < footstepRate)
+            {
+                currentFootstepTime += Time.deltaTime;
+            }
+            else
+            {
+                AudioManager.Instance.PlayFootstep();
+                currentFootstepTime = 0f;
+            }
+        }  
     }
 
     public void ChangeSpeed(float speed)
