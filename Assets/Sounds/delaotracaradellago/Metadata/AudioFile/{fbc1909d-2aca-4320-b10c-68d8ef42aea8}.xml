@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{fbc1909d-2aca-4320-b10c-68d8ef42aea8}">
+		<property name="assetPath">
+			<value>grito nene .mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.0710204081632653</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9efb5efe-f5de-4b59-9fd4-518b1c4325c2}</destination>
+		</relationship>
+	</object>
+</objects>
