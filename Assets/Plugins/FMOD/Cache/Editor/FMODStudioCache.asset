@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/Sounds/delaotracaradellago/foleys/F MOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639070480556318926
+  lastModified: 639079832374180721
   FileSizes:
   - Name: 
     Value: 1280
@@ -89,7 +89,7 @@ MonoBehaviour:
   Path: Assets/Sounds/delaotracaradellago/foleys/F MOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639070480556299047
+  lastModified: 639079832374144862
   FileSizes: []
   Exists: 1
 --- !u!114 &-5327533313124801812
@@ -334,7 +334,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -5720152033588125267}
   cacheVersion: 131858
-  cacheTime: 639070480556318926
+  cacheTime: 639079832374180721
   SerializableEventsDict:
   - key: event:/agarra mascara
     index: 0
