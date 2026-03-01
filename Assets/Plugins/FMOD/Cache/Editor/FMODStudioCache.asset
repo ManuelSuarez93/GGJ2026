@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8692593130515929210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/gameover modificado
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/gameover modificado
+  Guid:
+    Data1: 490915228
+    Data2: 1220473408
+    Data3: -1818006116
+    Data4: -1119215034
+  Banks:
+  - {fileID: -5614109155033486808}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-8148103190340202149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,10 +96,10 @@ MonoBehaviour:
   Path: Assets/Sounds/delaotracaradellago/foleys/F MOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639070480556318926
+  lastModified: 639079905628890453
   FileSizes:
   - Name: 
-    Value: 1280
+    Value: 1292
   Exists: 1
 --- !u!114 &-5614109155033486808
 MonoBehaviour:
@@ -89,36 +116,9 @@ MonoBehaviour:
   Path: Assets/Sounds/delaotracaradellago/foleys/F MOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639070480556299047
+  lastModified: 639079905628849951
   FileSizes: []
   Exists: 1
---- !u!114 &-5327533313124801812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/gameover
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/gameover
-  Guid:
-    Data1: 490915228
-    Data2: 1220473408
-    Data3: -1818006116
-    Data4: -1119215034
-  Banks:
-  - {fileID: -5614109155033486808}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-4264858619153150800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,15 +326,15 @@ MonoBehaviour:
   - {fileID: -357916009533582754}
   - {fileID: -1639034378827927683}
   - {fileID: -2585242091698627621}
-  - {fileID: -5327533313124801812}
   - {fileID: -6115273207574202771}
+  - {fileID: -8692593130515929210}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5614109155033486808}
   StringsBanks:
   - {fileID: -5720152033588125267}
   cacheVersion: 131858
-  cacheTime: 639070480556318926
+  cacheTime: 639079905628890453
   SerializableEventsDict:
   - key: event:/agarra mascara
     index: 0
