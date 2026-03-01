@@ -5347,19 +5347,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1395365543730353250, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
   m_PrefabInstance: {fileID: 1939182507}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &982640562
+--- !u!114 &982640567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982640557}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: 744a208c85da6d04c861d81b992e4ead, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates: []
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioParameterTrigger
+  CollisionTag: 
+  Emitters:
+  - Target: {fileID: 0}
+    Params: []
+  TriggerEvent: 0
 --- !u!1 &1032891467
 GameObject:
   m_ObjectHideFlags: 0
@@ -9397,7 +9401,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4790783448085027592, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
   m_PrefabInstance: {fileID: 1939182507}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1529209774
+--- !u!114 &1529209779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9418,7 +9422,7 @@ MonoBehaviour:
       Data4: 1788422124
     Path: event:/ruido papel carta
   Event: 
-  EventPlayTrigger: 1
+  EventPlayTrigger: 19
   EventStopTrigger: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -9428,6 +9432,20 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &1529209780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529209764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1569858954
 GameObject:
   m_ObjectHideFlags: 0
@@ -12185,6 +12203,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4519440783189983640, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4790783448085027592, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_Name
       value: OpenButton
@@ -12255,7 +12277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9052872389635495204, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9999757
       objectReference: {fileID: 0}
     - target: {fileID: 9052872389635495204, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12263,11 +12285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9052872389635495204, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.0069818515
       objectReference: {fileID: 0}
     - target: {fileID: 9052872389635495204, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.00009750915
       objectReference: {fileID: 0}
     - target: {fileID: 9052872389635495204, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -12283,11 +12305,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9052872389635495204, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 9052872389635495204, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.011
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12301,10 +12323,13 @@ PrefabInstance:
       addedObject: {fileID: 1939182514}
     - targetCorrespondingSourceObject: {fileID: 1395365543730353250, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 982640562}
+      addedObject: {fileID: 982640567}
     - targetCorrespondingSourceObject: {fileID: 4790783448085027592, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1529209774}
+      addedObject: {fileID: 1529209779}
+    - targetCorrespondingSourceObject: {fileID: 4790783448085027592, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1529209780}
   m_SourcePrefab: {fileID: 100100000, guid: 882770e491214c743a45cf885aa00a4b, type: 3}
 --- !u!224 &1939182508 stripped
 RectTransform:
