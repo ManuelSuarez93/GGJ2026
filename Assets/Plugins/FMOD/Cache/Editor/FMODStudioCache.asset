@@ -96,10 +96,10 @@ MonoBehaviour:
   Path: Assets/Sounds/delaotracaradellago/foleys/F MOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639079905628890453
+  lastModified: 639085234728459700
   FileSizes:
   - Name: 
-    Value: 1292
+    Value: 1424
   Exists: 1
 --- !u!114 &-5614109155033486808
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   Path: Assets/Sounds/delaotracaradellago/foleys/F MOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639079905628849951
+  lastModified: 639085234728429465
   FileSizes: []
   Exists: 1
 --- !u!114 &-4264858619153150800
@@ -328,13 +328,16 @@ MonoBehaviour:
   - {fileID: -2585242091698627621}
   - {fileID: -6115273207574202771}
   - {fileID: -8692593130515929210}
+  - {fileID: 4003068416995567348}
+  - {fileID: 7354890541998086054}
+  - {fileID: 1909841122914207871}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5614109155033486808}
   StringsBanks:
   - {fileID: -5720152033588125267}
   cacheVersion: 131858
-  cacheTime: 639079905628890453
+  cacheTime: 639085234728459700
   SerializableEventsDict:
   - key: event:/agarra mascara
     index: 0
@@ -354,10 +357,43 @@ MonoBehaviour:
     index: 7
   - key: event:/pisada hojas
     index: 8
-  - key: event:/gameover
-    index: 9
   - key: event:/grito fuerte
+    index: 9
+  - key: event:/gameover modificado
     index: 10
+  - key: event:/pisada hojas 2
+    index: 11
+  - key: event:/pisada hojas 3
+    index: 12
+  - key: event:/pisada pedregullo 2
+    index: 13
+--- !u!114 &1909841122914207871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/pisada pedregullo 2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/pisada pedregullo 2
+  Guid:
+    Data1: -670886705
+    Data2: 1113448190
+    Data3: -1964410961
+    Data4: 581486441
+  Banks:
+  - {fileID: -5614109155033486808}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2641181437570960350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +441,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4003068416995567348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/pisada hojas 2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/pisada hojas 2
+  Guid:
+    Data1: -1970866268
+    Data2: 1309729467
+    Data3: -19331197
+    Data4: 1999581022
+  Banks:
+  - {fileID: -5614109155033486808}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4769080375606854609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +486,33 @@ MonoBehaviour:
     Data2: 1301839257
     Data3: -535232127
     Data4: 1788422124
+  Banks:
+  - {fileID: -5614109155033486808}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7354890541998086054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/pisada hojas 3
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/pisada hojas 3
+  Guid:
+    Data1: -1055147335
+    Data2: 1327951748
+    Data3: 436816532
+    Data4: -1594464900
   Banks:
   - {fileID: -5614109155033486808}
   IsStream: 0
